@@ -1,12 +1,15 @@
 !(function(){
 
-	//Generate random number from length of quotes array, return random index from array with random number
-	function getRandomQuote(){
+	//Generate Random Quote
+	const getRandomQuote = () => {
+		//generate random number from length of quotes array
 		const randomNumber = Math.floor(Math.random() * quotes.length);
+		//return quote based on random index
 		return quotes[randomNumber];
 	};
 
-	function printQuote(){
+	//Print Quote To Document
+	const printQuote = () => {
 		const quote = getRandomQuote();
 		const quoteBox = document.getElementById("quote-box");
 
@@ -32,16 +35,38 @@
 		//close source paragraph
 		html += '</p>';
 
+		//Print to document
 		quoteBox.innerHTML = html;
 	}
+
+	//Generate Random Background Color When Button Is Clicked
+	const generateBackgroundColor = () => {
+
+		//Generate random number between 0 and 255
+		const getRandomNumber = () => {
+			const randomNumber = Math.floor(Math.random() * 255) + 1;
+			return randomNumber;
+		}
+
+		//Generate RGB string
+		const generateRGB = () => {return 'rgb(' + getRandomNumber() + ', ' + getRandomNumber() + ', ' + getRandomNumber() + ')';};
+
+		//set background color of page and button with random rgb
+		const color = generateRGB();
+		document.body.style.background = color;
+		document.getElementById("loadQuote").style.background = color;
+		}
 
 	//Print quote on page load
 	printQuote();
 
 
 	// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+// when user clicks anywhere on the button, the "printQuote" and "generateBackgroundColor" functions are called
+document.getElementById('loadQuote').addEventListener("click", function(){
+	printQuote();
+	generateBackgroundColor();
+}, false);
 
 
 }());
