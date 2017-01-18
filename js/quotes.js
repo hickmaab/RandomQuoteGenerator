@@ -24,3 +24,7 @@ let quotes = [
 		"source": "Crazy Horse, Oglala Lakota Sioux", 
 	}
 ];
+
+let usedQuotes = [
+
+];

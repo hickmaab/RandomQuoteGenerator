@@ -4,8 +4,11 @@
 	const getRandomQuote = () => {
 		//generate random number from length of quotes array
 		const randomNumber = Math.floor(Math.random() * quotes.length);
+
+		const quote = quotes[randomNumber];
+
 		//return quote based on random index
-		return quotes[randomNumber];
+		return quote;
 	};
 
 	//Print Quote To Document
@@ -37,6 +40,7 @@
 
 		//Print to document
 		quoteBox.innerHTML = html;
+
 	}
 
 	//Generate Random Background Color When Button Is Clicked
@@ -53,7 +57,7 @@
 
 		//set background color of page and button with random rgb
 		const color = generateRGB();
-		document.body.style.background = color;
+		document.body.style.backgroundColor = color;
 		document.getElementById("loadQuote").style.background = color;
 		}
 
